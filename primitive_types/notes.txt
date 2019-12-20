@@ -1,0 +1,28 @@
+Primitive types are usually used to store simple data for the application.
+
+Primitive types in JavaScript are limited to the following: 
+1. Number - Used for storing 32bit integers or floating point numbers.
+2. String - Used for storing characters or strings. There are no seperate 'char' type for storing single characters.
+3. Boolean - Used for storing boolean variables which will have only 2 values: true or false.
+4. Null - Special type. Can only store the value NULL.
+5. Undefined - Special type. It is the lack of a value. When a variable is created in JS without any primitive type assigned to it, JS will automatically assign the type undefined to the variable. 
+
+In JS, primitive type values are stored directly onto a variable. This means that unlike objects where the values are saved in a memory location 
+and the reference to that location is assigned to the variable, for primitive types the value is directly assigned to the memory location the variable 
+is referenced from. 
+
+If we want to know the variable type in JS, we simple should print: typeof our_var_name
+
+Primitive types will print the inferred type correctly using the "typeof" method. However, 'null' is an exception. Instead of printing 'null' as the type as one would 
+expect, it prints 'object'. This is because when null is assigned, JS infers it as a valid object with the value and type of null. So in order to ensure if the variable is 
+'null', instead of doing "typeof our_var_name" we should print "our_var_name === null". What this will do is match the data type as well as the value, and if our variable is assigned 
+a value of null, JS will correctly match it as null and return true this time. 
+
+If we use "==" to match two variables, even if the type is different, if the variables have the same value, JS will return true. This is because when we do perform a 
+'==' comparison, JS automatically converts the var on the RHS to the type quivalent of the LHS var, and then matches their values. Therefore, if we are to do:  
+x = 123
+y = "123"
+x == y will return true as JS will convert the value of y to the number type equivalent and match to that x, and both have a value of 123 in that case.
+
+But when using '===' that is not the case. In this case JS ignores the convversion and strictly matches the type as well as the value, and this time x === y will return false.
+
